@@ -1,16 +1,8 @@
 # todolist
 
-A new Flutter project.
+Projeto feito em Flutter para fins de estudo do framework.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Projeto inicial para estudos da linguagem Dart, com o framework Flutter. Sendo um app para listagem de tarefas a serem realizadas pelo usuário, permitindo a exlusão de tarefas através da longa pressão em cada item adicionado, além da exclusão de todas as tarefas listadas. através do botão localizado na parte de baixo da aplicação.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
