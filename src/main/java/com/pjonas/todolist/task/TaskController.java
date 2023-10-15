@@ -53,13 +53,21 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public TaskModel update(@RequestBody TaskModel task, HttpServletRequest request, @PathVariable UUID id) {
+    public ResponseEntity update(@RequestBody TaskModel task, HttpServletRequest request, @PathVariable UUID id) {
 
         var taskUnity = this.repository.findById(id).orElse(null);
+        if (taskUnity == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Tarefa nao encontrada.");
+        }
+
+        var idUser = request.getAttribute("idUser");
+        if(!taskUnity.getIdUser().equals(idUser)){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Tarefa nao pertence ao usuario.");
+        }
 
         Utils.copyNonNullProperties(task, taskUnity);
-
-        return this.repository.save(taskUnity);
+        var taskUpdated = this.repository.save(taskUnity);
+        return ResponseEntity.status(HttpStatus.OK).body(taskUpdated);
     }
 
 
